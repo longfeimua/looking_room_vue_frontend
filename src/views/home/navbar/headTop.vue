@@ -10,7 +10,7 @@
         <!-- 定位图标 -->
         <div class="location_icon_box">
           <span class="iconfont icon-dingwei"></span>
-          <span>绵阳</span>
+          <span>{{ localCity }}</span>
         </div>
       </div>
       <ul class="top-list">
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { reactive, ref } from "vue";
+import { ref } from "vue";
 import login from "./login/login.vue";
 import register from "./register/register.vue";
 
@@ -44,7 +44,13 @@ export default {
     login,
     register,
   },
-  setup() {
+  props: {
+    localCity: {
+      type: String,
+      default:"北京市"
+    },
+  },
+  setup(prop) {
     let showLoginPage = ref(false);
     let showRegisterPage = ref(false);
     let loginBtn = function () {
@@ -53,7 +59,6 @@ export default {
     let registerBtn = function () {
       showRegisterPage.value = true;
     };
-
     return {
       showLoginPage,
       loginBtn,
