@@ -34,9 +34,10 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import login from "./login/login.vue";
 import register from "./register/register.vue";
+import { loadBaiDuMap } from "../location/map/bmap";
 
 export default {
   name: "headTop",
@@ -44,13 +45,8 @@ export default {
     login,
     register,
   },
-  props: {
-    localCity: {
-      type: String,
-      default:"北京市"
-    },
-  },
-  setup(prop) {
+  setup(prop, content) {
+    /* 登陆注册组件展示 */
     let showLoginPage = ref(false);
     let showRegisterPage = ref(false);
     let loginBtn = function () {
@@ -59,11 +55,23 @@ export default {
     let registerBtn = function () {
       showRegisterPage.value = true;
     };
+    /* map城市信息获取，加载bmap */
+    let localCity = ref("北京市");
+    onMounted(() => {
+      loadBaiDuMap().then((res) => {
+        function myFun(result) {
+          localCity.value = result.name;
+        }
+        var myCity = new BMap.LocalCity();
+        myCity.get(myFun);
+      });
+    });
     return {
       showLoginPage,
       loginBtn,
       registerBtn,
       showRegisterPage,
+      localCity,
     };
   },
   methods: {
