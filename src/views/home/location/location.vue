@@ -4,9 +4,7 @@
       <div class="near">附近</div>
       <div @click="turnOnMap" class="map_btn">{{ mapVal.mes }}</div>
     </div>
-    <div v-show="mapVal.if" class="map">
-      <bmap @getCityName="getCityName"></bmap>
-    </div>
+    <div v-if="mapVal.if" class="map"></div>
   </div>
 </template>
 
@@ -33,17 +31,10 @@ export default {
         mapVal.mes = "关闭地图";
       }
     };
-    let cityName = ref("");
-    let getCityName = function (val) {
-      cityName.value = val;
-    };
-    content.emit("getCityName", cityName);
 
     return {
       turnOnMap,
       mapVal,
-      getCityName,
-      cityName,
     };
   },
 };
