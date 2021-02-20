@@ -1,12 +1,12 @@
 <template>
   <div class="bg">
-    <head-top :localCity="cityName.value"></head-top>
+    <head-top></head-top>
     <div class="slogan">
       <h2>你进来看就来对了</h2>
       <h2>小生得名公益中间网，锵锵锵...</h2>
     </div>
     <search-box></search-box>
-    <location @getCityName="getCityName" />
+    <location />
   </div>
 </template>
 
@@ -24,14 +24,7 @@ export default {
     location,
   },
   setup() {
-    let cityName = ref("");
-    let getCityName = function (val: any) {
-      cityName.value = val;
-    };
-    return {
-      getCityName,
-      cityName,
-    };
+    return {};
   },
 };
 </script>
