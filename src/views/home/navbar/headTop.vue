@@ -132,8 +132,13 @@ h1 {
 .logo > img {
   width: 5rem;
 }
+.login_register > span {
+  cursor: pointer;
+}
+
 .login_register .iconfont {
   font-size: 1rem;
   padding: 0 2px;
+  cursor: initial;
 }
 </style>
