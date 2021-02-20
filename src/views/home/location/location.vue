@@ -2,9 +2,8 @@
   <div>
     <div class="location">
       <div class="near">附近</div>
-      <div @click="turnOnMap" class="map_btn">{{ mapVal.mes }}</div>
+      <div class="map_btn">打开地图</div>
     </div>
-    <div v-if="mapVal.if" class="map"></div>
   </div>
 </template>
 
@@ -18,24 +17,7 @@ export default {
     bmap,
   },
   setup(prop, content) {
-    let mapVal = reactive({
-      mes: "打开地图",
-      if: false,
-    });
-    let turnOnMap = function () {
-      if (mapVal.if) {
-        mapVal.if = false;
-        mapVal.mes = "打开地图";
-      } else {
-        mapVal.if = true;
-        mapVal.mes = "关闭地图";
-      }
-    };
-
-    return {
-      turnOnMap,
-      mapVal,
-    };
+    return {};
   },
 };
 </script>
