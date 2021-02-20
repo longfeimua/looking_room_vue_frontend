@@ -90,6 +90,7 @@ export default {
   background-color: rgb(102, 88, 185);
   margin: 1rem auto;
   border-radius: 0.3rem;
+  cursor: pointer;
 
   text-align: center;
   line-height: 2.5rem;
