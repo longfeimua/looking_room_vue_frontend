@@ -16,7 +16,7 @@ export default {
       loadBaiDuMap().then(() => {
         var map = new BMap.Map("container");
         var point = new BMap.Point(116.404, 39.915);
-        map.centerAndZoom(point, 15);
+        map.centerAndZoom(point, 11);
 
         // 添加控件
         map.addControl(new BMap.NavigationControl());
@@ -28,7 +28,6 @@ export default {
         function myFun(result) {
           var cityName = result.name;
           map.setCenter(cityName);
-          content.emit("getCityName",cityName)
         }
         var myCity = new BMap.LocalCity();
         myCity.get(myFun);
